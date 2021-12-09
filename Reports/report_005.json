@@ -1,0 +1,145 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-12-09T06:27:18.861Z",
+    "end": "2021-12-09T06:28:14.788Z",
+    "duration": 55927,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a503f313-d8b0-41eb-9a2e-949bb9dfc2e5",
+      "title": "",
+      "fullFile": "cypress/integration/Demo/Demo2.js",
+      "file": "cypress/integration/Demo/Demo2.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8c374966-d080-4df7-9aff-027313e75475",
+          "title": "Launch application",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Register new user",
+              "fullTitle": "Launch application Register new user",
+              "timedOut": null,
+              "duration": 17292,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.title().should('eq', 'My Store');\ncy.get('.header_user_info').contains('Sign in').click();\ncy.get('#email_create').type('raks.k@gmail.com');\ncy.get('#SubmitCreate').click({\n  force: true\n});\nif (cy.get('#create_account_error').contains('An account using this email address has already been registered. Please enter a valid password or request a new one.')) {\n  cy.get('#email').type('raks.k@gmail.com');\n  cy.get('#passwd').type('qwertyuiop');\n  cy.get('#SubmitLogin').click();\n} else {\n  cy.get('#id_gender1').click();\n  cy.get('#customer_firstname').type(\"Raks\");\n  cy.get('#customer_lastname').type(\"k\");\n  cy.get('#passwd').type('qwertyuiop');\n  cy.get('.form-group').within(() => {\n    cy.get('#days').select('13');\n    cy.get('#months').select('August');\n    cy.get('#years').select('1997');\n  });\n  cy.get('#company').type('IBM');\n  cy.get('#address1').type('delhi');\n  cy.get('#city').type('sirsa');\n  cy.get('#id_state').select('Hawaii');\n  cy.get('#postcode').type('12505');\n  cy.get('#phone_mobile').type('1234567890');\n  cy.get('#alias').type('rk@gmail.com');\n  cy.get('#submitAccount').click();\n}",
+              "err": {},
+              "uuid": "9b8fd900-d97e-4c0c-b80f-131d7ce64eb2",
+              "parentUUID": "8c374966-d080-4df7-9aff-027313e75475",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Buy new product",
+              "fullTitle": "Launch application Buy new product",
+              "timedOut": null,
+              "duration": 23619,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#block_top_menu').within(() => {\n  cy.contains('T-shirts').click({\n    force: true\n  });\n});\ncy.get('.button-container').contains('Add to cart').click();\ncy.get('.button-container').contains('Proceed to checkout').click();\ncy.get('a[href*=\"http://automationpractice.com/index.php?controller=order&step=1\"]').contains('Proceed to checkout').click();\ncy.get('#email').type('raks.k@gmail.com');\ncy.get('#passwd').type('qwertyuiop');\ncy.get('#SubmitLogin').click();\ncy.get('button[name=\"processAddress\"]').contains('Proceed to checkout').click();\ncy.get('#cgv').click();\ncy.get('button[name=\"processCarrier\"]').contains('Proceed to checkout').click();\ncy.get('a[href*=\"http://automationpractice.com/index.php?fc=module&module=bankwire&controller=payment\"]').contains('Pay by bank wire ').click();\ncy.contains('I confirm my order').click();\ncy.contains('I confirm my order').click();",
+              "err": {},
+              "uuid": "42e2efef-c987-414a-baa8-1d02af5ba306",
+              "parentUUID": "8c374966-d080-4df7-9aff-027313e75475",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check If order is placed",
+              "fullTitle": "Launch application Check If order is placed",
+              "timedOut": null,
+              "duration": 12100,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.login').contains('Sign in').click();\ncy.get('#email').type('raks.k@gmail.com');\ncy.get('#passwd').type('qwertyuiop');\ncy.get('#SubmitLogin').click();\ncy.get('.icon-list-ol').click();",
+              "err": {},
+              "uuid": "e27991ae-df1b-41a6-998f-e50016b0d887",
+              "parentUUID": "8c374966-d080-4df7-9aff-027313e75475",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9b8fd900-d97e-4c0c-b80f-131d7ce64eb2",
+            "42e2efef-c987-414a-baa8-1d02af5ba306",
+            "e27991ae-df1b-41a6-998f-e50016b0d887"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 53011,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "Reports",
+        "reportFilename": "report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.0.1"
+    }
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-12-09T06:28:16.946Z",
+    "end": "2021-12-09T06:28:17.795Z",
+    "duration": 849,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "38b05a39-4bb1-4160-8d6e-47d43bbcaa2c",
+      "title": "",
+      "fullFile": "cypress/integration/Demo/demoapi.js",
+      "file": "cypress/integration/Demo/demoapi.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ffdc24d5-8c0b-45ea-a64c-8527e7707b28",
+          "title": "API Automation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "create new user",
+              "fullTitle": "API Automation create new user",
+              "timedOut": null,
+              "duration": 481,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('createuser').then(body => {\n  cy.request({\n    method: 'POST',\n    url: 'https://gorest.co.in/public/v1/users',\n    headers: {\n      'Authorization': 'Bearer ' + accessToken\n    },\n    body: {\n      \"name\": body.name,\n      \"gender\": body.gender,\n      \"email\": testEmail,\n      \"status\": body.status\n    }\n  }).then(res => {\n    expect(res.status).to.eq(201);\n  }).then(res => {\n    const userId = res.body.data.id;\n    userid = res.body.data.id;\n    cy.log(\"user id is: \" + userId);\n  });\n});",
+              "err": {},
+              "uuid": "b56c8c52-6aea-459f-b6ea-fe178dbfde6f",
+              "parentUUID": "ffdc24d5-8c0b-45ea-a64c-8527e7707b28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Get new created user",
+              "fullTitle": "API Automation Get new created user",
+              "timedOut": null,
+              "duration": 104,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://gorest.co.in/public-api/users/' + userid,\n  headers: {\n    'authorization': 'Bearer ' + accessToken\n  }\n}).then(res => {\n  expect(res.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "3e579bec-be73-4a2b-84b3-439d607b0be4",
+              "parentUUID": "ffdc24d5-8c0b-45ea-a64c-8527e7707b28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Update new created user data",
+              "fullTitle": "API Automation Update new created user data",
+              "timedOut": null,
+              "duration": 114,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'PUT',\n  url: 'https://gorest.co.in/public/v1/users/' + userid,\n  headers: {\n    'Authorization': 'Bearer ' + accessToken\n  },\n  body: {\n    \"name\": \"Raks\",\n    \"gender\": \"male\",\n    \"email\": testEmail,\n    \"status\": \"inactive\"\n  }\n}).then(res => {\n  expect(res.status).to.eq(200);\n  expect(res.body.data).has.property('email', testEmail);\n  expect(res.body.data).has.property('name', 'Raks');\n});",
+              "err": {},
+              "uuid": "fb2c305a-075a-4516-ae03-9e6af52936af",
+              "parentUUID": "ffdc24d5-8c0b-45ea-a64c-8527e7707b28",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete new created user",
+              "fullTitle": "API Automation Delete new created user",
+              "timedOut": null,
+              "duration": 101,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'DELETE',\n  url: 'https://gorest.co.in/public/v1/users/' + userid,\n  headers: {\n    'Authorization': 'Bearer ' + accessToken\n  }\n}).then(res => {\n  expect(res.status).to.eq(204);\n});",
+              "err": {},
+              "uuid": "c89d9ebd-a673-44c5-b0ec-f11d8ce65ccb",
+              "parentUUID": "ffdc24d5-8c0b-45ea-a64c-8527e7707b28",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b56c8c52-6aea-459f-b6ea-fe178dbfde6f",
+            "3e579bec-be73-4a2b-84b3-439d607b0be4",
+            "fb2c305a-075a-4516-ae03-9e6af52936af",
+            "c89d9ebd-a673-44c5-b0ec-f11d8ce65ccb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 800,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "Reports",
+        "reportFilename": "report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.0.1"
+    }
+  }
+}
